@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="myStyles.css">
+    <link rel="stylesheet" type="text/css" href="custom.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <title>Geometric Calculator</title>
+</head>
+<body  class="d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar navbar-expand navbar-dark  sticky-top">
+            <div class="container-fluid" >
+                <a class="navbar-brand" onclick="Show('homepage')"><img src="images/geometricLogo.png" alt="Logo"></a>
+                <div class="collapse navbar-collapse d-flex justify-content-end me-2" id="navBarMenu">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a type="button" class="nav-link fs-4 btn customBtn rounded-2 text-white" onclick="Show('about')">ABOUT</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main class="text-center d-flex flex-row" >
+        <div id="shapes" class="container-fluid col-2 min-vh-100">
+            <p class="fs-5 text-light mt-4">SHAPES</p>
+            <div class="d-grid gap-2">
+                <a type="button" onclick="Show('first', 'result')" class="btn btn-warning mb-3">RHOMBUS</a>
+                <a type="button" onclick="Show('second', 'result1')" class="btn btn-warning mb-3">TRAPEZOID</a>
+                <a type="button" onclick="Show('third', 'result2')" class="btn btn-warning mb-3">TRIANGLE</a>
+                <a type="button" onclick="Show('fourth', 'result3')" class="btn btn-warning mb-3">CIRCLE</a>
+                <a type="button" onclick="Show('fifth', 'result4')" class="btn btn-warning mb-3">SQUARE</a>
+                <a type="button" onclick="Show('sixth', 'result5')" class="btn btn-warning mb-3">RECTANGLE</a>
+                <a type="button" onclick="Show('seventh', 'result6')" class="btn btn-warning mb-3">PARALLELOGRAM</a>
+                <a type="button" onclick="Show('eight', 'result7')" class="btn btn-warning mb-3">HEXAGON</a>
+                <a type="button" onclick="Show('ninth', 'result8')" class="btn btn-warning mb-3">OCTAGON</a>
+                <a type="button" onclick="Show('tenth', 'result9')" class="btn btn-warning mb-3">KITE</a>
+            </div>
+        </div>
+        <div class="content container-fluid col-10 d-inline-flex min-vh-100 justify-content-center">
+            <div class="fs-2 lh-1 fw-bold col-10 text-center text-dark justify-content-center bg-warning rounded-3 m-auto p-5" id="homepage">
+                <div><p>WELCOME</p></div>
+                <div class="mb-4"><p>TO</p></div>
+                <div class="w-auto mb-4"><img class="img-responsive w-75" src="images/geometricLogo-black.png" alt="Geometric"></div>
+                <div><p>SIMPLE CALCULATOR THAT CAN PERFORM AREA AND PERIMETER CALCULATIONS FOR 10 BASIC SHAPES</p></div>
+            </div>
+
+            <div id="first" class="container-fluid w-100 h-100 p-4" style="display: none; margin-top: 3%;">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >RHOMBUS</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5 mb-3" id="value" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value0-1" placeholder="Enter 2nd Value">
+                                            <button type="button" class="solve btn fw-bold w-100 mt-3 fs-3 customBtn" onclick="calculate(0, 10, 0, 0)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="rhom-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="rhom-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result" class=" mt-5 h1 "><strong>A=pq/2  P=4a</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div class="rhombus mt-5 p-5">
+                                <div class="triangle1">
+                                    <p><em>a</em></p>
+                                    <p><em>p</em></p>
+                                    <p><em>q</em></p>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                                <div class="triangle2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="second" class="container-fluid trap w-100 h-100 p-4" style="display: none; margin-top: 1%;">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >TRAPEZOID</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control mb-3 w-100 fs-5" id="value1" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control mb-3 w-100 fs-5" id="value1-1" placeholder="Enter 2nd Value">
+                                            <input type="number" class="form-control mb-3 w-100 fs-5" id="value1-2" placeholder="Enter 3rd Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value1-3" placeholder="Enter 4th Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(1, 11, 12, 13)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="trap-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="trap-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result1" class=" mt-4 h1"><strong>A={(a+b)/2}h P=a+b+c+d</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div id="trapezoid" class="mt-5 p-5">
+                                <p class="mt-5 p-4"><em>a</em></p>
+                                <p><em>b</em></p>
+                                <p><em>c</em></p>
+                                <p><em>d</em></p>
+                                <p><em>h</em></p>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="third" class="container-fluid triangle w-100 h-100 p-4" style="display: none; margin-top: 2%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >TRIANGLE</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 mb-3 fs-5" id="value2" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control w-100 mb-3 fs-5" id="value2-1" placeholder="Enter 2nd Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value2-2" placeholder="Enter 3rd Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(2, 14, 15)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="tri-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="tri-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result2" class=" mt-5 h1 "><strong>A=HbB/2 P=a+b+c</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg  d-none d-lg-block rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="triangle">
+                                    <p><em>a</em></p>
+                                    <p><em>b</em></p>
+                                    <p>
+                                        <em>h</em> <sub><em>b</em></sub>
+                                    </p>
+                                    <p><em>c</em></p>
+                                    <p><em>Y</em></p>
+                                    <div class="small-box"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fourth" class="container-fluid circl w-100 h-100 p-4" style="display: none; margin-top: 5%;">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto p-1 mt-4">
+                                <div class="h1 fw-bold">CIRCLE</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5" id="value3" placeholder="Enter Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn"  onclick="calculate(3, 0, 0, 0)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="circ-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="circ-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result3" class=" mt-5 h1 "><strong>A = πr^2  C = 2πr</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="circle">
+                                    <p><em>r</em></p>
+                                    <p><em>d</em></p>
+                                    <p></p>
+                                    <p></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fifth" class="container-fluid squar w-100 h-100 p-4" style="display: none; margin-top: 5%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >SQUARE</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5" id="value4" placeholder="Enter Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(4)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="sqr-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="sqr-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result4" class=" mt-5 h1 "><strong>A=a2 P=4a</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="square">
+                                    <p><em>a</em></p>
+                                    <p><em>d</em></p>
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="sixth" class="container-fluid rectangl w-100 h-100 p-4" style="display: none; margin-top: 2%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >RECTANGLE</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control mb-3 w-100 fs-5" id="value5" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value5-1" placeholder="Enter 2nd Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(5, 16)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="rec-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="rec-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result5" class=" mt-5 h1 "><strong>A=wl P=2(l+w)</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="rectangle">
+                                    <p><em>w</em></p>
+                                    <p><em>d</em></p>
+                                    <p><em>l</em></p> 
+                                    <p></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="seventh" class="container-fluid parallel w-100 h-100 p-4" style="display: none; margin-top: 2%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >PARALLELOGRAM</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control mb-3 w-100 fs-5" id="value6" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value6-1" placeholder="Enter 2nd Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(6, 17)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="para-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="para-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result6" class=" mt-5 h1 "><strong>A=bh P=2(a+b)</strong></div>
+                            </div>
+                        </div>
+                        <div class="col customBg d-none d-lg-block rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="parallelogram">
+                                    <p><em>a</em></p>
+                                    <p><em>b</em></p>
+                                    <p><em>h</em></p>
+                                    <p></p>
+                                    <p class="small-box"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="eight" class="container-fluid hexagon w-100 h-100 p-4 " style="display: none; margin-top: 5%;">
+                <div class="d-grid" style="height: 80%;" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >HEXAGON</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5" id="value7" placeholder="Enter Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(7, 0, 0, 0)">Solve</button>                                        
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5" style="height: 40%;">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="hex-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="hex-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result7" class="mt-5 fw-bold h2 h-100"><strong>A={(3√3)/2}a2 P=6a</strong></div>
+                            </div>
+                        </div>
+                        <div class="col d-none d-lg-block customBg rounded-3">
+                            <div class="mt-5 p-5">
+                                <div class="hex ms-0 text-start">
+                                    <p><em>a</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="ninth" class="container-fluid octagon w-100 h-100 p-4" style="display: none; margin-top: 5%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >OCTAGON</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5" id="value8" placeholder="Enter Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(8, 0, 0, 0)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 ms-5 me-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="oct-drop" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="oct-drop">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result8" class=" mt-5 h1 "><strong>A=2(1+√2)a2 P=8a</strong></div>
+                            </div>
+                        </div>
+                        <div class="col d-none d-lg-block customBg rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="octagon">
+                                    <p></p>
+                                    <p><em>a</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="tenth" class="container-fluid kite w-100 h-100 p-4" style="display: none; margin-top: 2%">
+                <div class="d-grid h-75" >
+                    <div class="row">
+                        <div class="col customBg w-50 h-100 mx-3 rounded-3">
+                            <div class="w-100 h-auto mt-3 p-1">
+                                <div class="h1 mt-3 fw-bold" >KITE</div>
+                                    <form class="text-start">
+                                        <div class="m-5">
+                                            <input type="number" class="form-control w-100 fs-5 mb-3" id="value9" placeholder="Enter 1st Value">
+                                            <input type="number" class="form-control w-100 fs-5" id="value9-1" placeholder="Enter 2nd Value">
+                                            <button type="button" class="solve btn w-100 mt-3 fw-bold fs-3 customBtn" onclick="calculate(9, 18)">SOLVE</button>
+                                        </div>
+                                    </form>
+                            </div>
+                            <div class="bg-light text-dark py-4 mt-0 me-5 ms-5 mb-5">
+                                <div class="dropend text-start w-25 ms-3">
+                                    <button class="btn dropdown-toggle customBtn" type="button" id="drop-kite" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Solve For:
+                                    </button>
+                                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="drop-kite">
+                                        <li><a class="dropdown-item">Area</a></li>
+                                        <li><a class="dropdown-item">Perimeter</a></li>
+                                    </ul>
+                                </div>
+                                <div id="result9" class=" mt-5 h1 "><strong>A=pq/2 P=2(a+b)</strong></div>
+                            </div>
+                        </div>
+                        <div class="col d-none d-lg-block customBg rounded-3">
+                            <div class="mt-5 p-5">
+                                <div id="kite">
+                                    <div class="arrow-left">
+                                        <p><em>a</em></p>
+                                        <p><em>b</em></p>
+                                        <p><em>a</em></p>
+                                        <p><em>b</em></p>
+                                        <p><em>q</em></p>
+                                        <p><em>p</em></p>
+                                    </div>
+                                    <div class="arrow-right"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="about" class="container-fluid vh-75 w-100 mt-1 mb-5 btn-warning rounded-3" style="display: none">
+                <div class="row"><p class="fs-1 fw-bold bg-dark text-white rounded-top">COLLABORATORS</p></div>
+                <div class="row m-2 justify-content-center gx-5">
+                    <div class="raph col-3">
+                        <div class="row image"><img src="images/rap-thumbnail.png" alt="Raphael"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark">Raphael Isla</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/RpB.Isla"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                            </a></div>
+                    </div>
+                    <div class="rox col-3">
+                        <div class="row image"><img src="images/rox-thumbnail.png" alt="Roxanne"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark">Ma. Roxanne Lagazon</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/rox.valdez18"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                        </a></div>
+                    </div>
+                    <div class="jeric col-3">
+                        <div class="row image"><img src="images/jeric-thumbnail.png" alt="Jeric"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark">Jeric Moreno</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/100007137708417"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                        </a></div>
+                    </div>
+                    <div class="marvin col-3">
+                        <div class="row image"><img src="images/marv-thumbnail.png" alt="Marvin"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark">Marvin Santillan</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/mrvnsntlln"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                        </a></div>
+                    </div>
+                </div>
+                <div class="row justify-content-center mb-3 gx-5">
+                    <div class="markv col-3">
+                        <div class="row image"><img src="images/markv-thumbnail.png" alt="Mark"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark mb-0">Mark Viloria</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/kram.viloria"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                            </a></div>
+                    </div>
+                    <div class="fred col-3">
+                        <div class="row image"><img src="images/fred-thumbnail.png" alt="Frederick"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark mb-0">Frederick Reyes</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/fnreyes01/"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                            </a></div>
+                    </div>
+                    <div class="jericho col-3">
+                        <div class="row image"><img src="images/jericho-thumbnail.png" alt="Jericho"></div>
+                        <div class="row name"><p class="fs-4 fw-bold text-dark mb-0">Jericho Bongay</p></div>
+                        <div class="row social">
+                            <a type="button" class="btn btn-dark" href="https://www.facebook.com/wyd.jeco"><img class="fbIcon" src="images/fb-icon.png" alt="fb">
+                            </a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+</body>
+</html>

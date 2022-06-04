@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+
+*{
+    font-family: 'Open Sans', sans-serif;
+}
+body{
+    background-image: url("images/geometry.gif");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+img.logoPng { 
+    height: 100px;
+    width: auto;
+}
+img.fbIcon {
+    width:auto;
+    height:42px;
+}
+
+a.btn:hover,
+a.btn:focus {
+    background-color: #ffcd39;
+    font-weight: 700;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 0.5em 0.5em -0.4em;
+    transform: translateY(-0.25em);
+}
+
+@media all and (max-widht: 450px) {
+    
+    main #shapes {
+        display: none;
+    }
+    
+  }
